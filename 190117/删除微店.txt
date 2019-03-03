@@ -1,0 +1,18 @@
+curl -XPOST "10.17.7.241:29200/social_info/_search?pretty" -d '{"query":{"bool":{"must":[{"term":{"province_id":"771"}}]},"from":0,"size":10000}}'
+
+curl -XPOST "10.17.7.241:29200/social_info/_search?pretty" -d '{"query":{"bool":{"must":[{"term":{"province_id":"771","status":1}},{"term":{"status":1}}],"must_not":[],"should":[]}},"from":0,"size":10000}'
+
+curl -XPOST "192.168.26.104:29200/social_info/_search?pretty" -d '{"query":{"bool":{"must":[{"term":{"province_id":"771"}}],"must_not":[],"should":[]}},"from":0,"size":10000}'
+
+
+
+grep -Po 'agentid[" :]+\K[^"]+' guangxi.txt > id.txt
+
+param_file=id.txt
+while read line
+do 
+	arr=($line)
+	curl -XDELETE "10.17.7.241:29200/social_info/info/$arr"
+done < $param_file
+
+
