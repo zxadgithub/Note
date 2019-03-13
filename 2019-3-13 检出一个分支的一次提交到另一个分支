@@ -1,0 +1,34 @@
+---
+title: 2019-3-13 检出一个分支的一次提交到另一个分支
+tags: 
+grammar_cjkRuby: true
+---
+
+例如要将A分支的一个commit合并到B分支：
+
+首先切换到A分支
+
+git checkout A
+
+git log
+
+找出要合并的commit ID :
+
+例如
+
+0128660c08e325d410cb845616af355c0c19c6fe
+
+然后切换到B分支上
+
+git checkout B
+
+git cherry-pick  0128660c08e325d410cb845616af355c0c19c6fe
+
+然后就将A分支的某个commit合并到了B分支了
+
+
+--------------------- 
+作者：hagarGrowth 
+来源：CSDN 
+原文：https://blog.csdn.net/hunzhanglei/article/details/80706286 
+版权声明：本文为博主原创文章，转载请附上博文链接！
