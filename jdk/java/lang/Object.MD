@@ -1,3 +1,4 @@
+"[Toc]"
 #### @HotSpotIntrinsicCandidate注解
 * 可标注于方法，构造函数
 * 被标注的方法或者构造函数将在HotSpot中有高效的实现--基于CPU指令，运行时，HotSpot维护的高效实现将替代JDK中的实现，从而获得更高的效率
@@ -53,7 +54,15 @@ class User implements Cloneable{
 User a = new User;
 User b = (User)a.clone();
 ```
-
+### equals()
+非空对象相等关系：
+对于任何非空引用x,y,z
+* 对称性 x.equals(y)为TRUE  则y.equals(x)为TRUE
+* 自反性 x.equals(x)始终未true
+* 传递性 x.equals(y) 为true y.equals(z) 为true 则 x.equals(z)
+* 一致性 ，不改变属性值况下，x.equals(y)一次为true，则永久为true
+* x.equals(null)恒为false
+Object类的equals 当且仅当引用为一个对象才相等即 x == y 则 x.equals(y)为true
 
 
 
